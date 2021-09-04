@@ -1,0 +1,56 @@
+import pygame
+import time
+import random
+
+# Init pygame
+
+pygame.init()
+
+#define colors
+white = (255,255,255)
+black =(0,0,0)
+red =(255,0,0)
+orange =(255,165,0)
+
+width, height = 600,400
+
+game_display = pygame.display.set_mode((width, height))
+pygame.display.set_caption("Snake_Game_1")
+
+clock = pygame.time.Clock()
+
+snake_size = 10
+snake_speed = 15
+
+message_font =pygame.font.SysFont('ubuntu', 30)
+score_font =pygame.font.SysFont('ubuntu',25)
+
+def draw_score(score):
+    text = score_font.render("Score:" + str(score), True, orange)
+    game_display.blit(text,[0,0])
+
+def draw_snake(snake_size, snake_pixels):
+    for pixel in snake_pixels:
+        pygame.draw.rect(game_display, white, [pixel[0],pixel[1],snake_size, snake_size])
+
+
+def run_game():
+    game_over = False
+    game_close = False
+
+    x = width / 2
+    y = height / 2
+
+    x_speed = 0
+    y_speed = 0
+
+    snake_pixels = []
+    snake_length = 1
+
+    target_x = round(random.randrange(0,width-snake_size)/10.0) * 10.0
+    target_y = round(random.randrange(0,height-snake_size)/10.0) * 10.0
+
+
+
+
+
