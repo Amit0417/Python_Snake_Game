@@ -51,6 +51,32 @@ def run_game():
     target_y = round(random.randrange(0,height-snake_size)/10.0) * 10.0
 
 
+    while not game_over():
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                game_over = True
+            if event.key == pygame.KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    x_speed = -snake_size
+                    y_speed =0
+                if event.key == pygame.K_RIGHT:
+                    x_speed = snake_size
+                    y_speed =0
+                if event.key == pygame.K_UP:
+                    x_speed = 0
+                    y_speed = -snake_size
+                if event.key == pygame.K_DOWN:
+                    x_speed = 0
+                    y_speed = snake_size
+        if x>= width or x<0 or y>= height or y<0 :
+            game_close = True
+
+        x += x_speed
+        y += y_speed
+
+
+
+
 
 
 
