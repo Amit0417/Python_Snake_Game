@@ -20,7 +20,7 @@ clock = pygame.time.Clock()
 
 # Snake size and speed
 snake_size = 10
-snake_speed = 12
+snake_speed = 15
 
 # font for message and score
 message_font = pygame.font.SysFont('ubuntu', 15)
@@ -58,8 +58,12 @@ def run_game():  # Define function to run game
 
         while game_close:
             game_display.fill(black)
-            game_over_message = message_font.render("Game Over! Press 1 for play 2 for quit ", True, white)
-            game_display.blit(game_over_message, [width / 3, height / 3])
+            game_over_message = message_font.render("Game Over!", True, white)
+            game_over_message_1 = message_font.render("Press 1 for replay", True, white)
+            game_over_message_2 = message_font.render("Press 2 for quit ", True, white)
+            game_display.blit(game_over_message,  [width / 3, height / 4])
+            game_display.blit(game_over_message_1,  [width / 3, height / 3])
+            game_display.blit(game_over_message_2,  [width / 3, height / 2.5])
             print_score(snake_length - 1)
             pygame.display.update()
 
